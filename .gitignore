@@ -18,14 +18,31 @@ node_modules/
 dist/
 build/
 target/
+out/
 __pycache__/
 *.pyc
 .venv/
 venv/
+vendor/
+.gradle/
+bin/
+obj/
+
+# Logs, coverage, local runtime state
+*.log
+npm-debug.log*
+.coverage
+coverage/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.sqlite3
 
 # Editor / OS
 .DS_Store
 Thumbs.db
 *.swp
+*.swo
 .idea/
 .vscode/
+*.iml
