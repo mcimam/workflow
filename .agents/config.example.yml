@@ -1,0 +1,43 @@
+# Copy values into config.yml after cloning this template into pci/<slug>/.
+# Agents must read config.yml before tracking or channel-intake work.
+# Local Odoo run settings live only in project.code-workspace (not here).
+# Intake cursors: .agents/state.yml (gitignored); start from state.example.yml.
+
+project:
+  slug: fwa
+  name: "Example Client"
+  module_prefix: pci_fwa_      # technical names for custom addons under modules/
+  odoo_version: "19.0"
+
+# Where project status lives when channels disagree:
+#   odoo   — Portcities project.task is canonical
+#   notes  — wiki/notes is canonical
+#   hybrid — Odoo for formal status; wiki for context/decisions (state which you used)
+tracking:
+  mode: hybrid
+
+portcities:
+  project_id: 1234
+  project_url: "https://portcities.net/odoo/action-786/1234"
+  milestone_id: null
+  partner_id: null
+  default_assignees: [1179]
+  # Populate with: python3 .agents/skills/odoo-task-activity/scripts/create_task.py stages
+  stages:
+    backlog: 18
+    todo: 19
+    in progress: 21
+    qc: 22
+    uat: 23
+    done: 24
+    cancelled: 25
+
+gdrive:
+  # Canonical shared docs root. Wiki links here — never duplicate Drive files into git.
+  folder_url: "https://drive.google.com/drive/folders/REPLACE"
+  folder_id: "REPLACE"
+
+channels:
+  gmail_query: "label:PCI/FWA"
+  gchat_space: null
+  whatsapp: manual

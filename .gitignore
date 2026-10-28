@@ -1,0 +1,40 @@
+# Secrets / local overrides
+.env
+.env.*
+!.env.example
+.agents/config.local.yml
+.agents/state.yml
+
+# Human drops (WhatsApp exports, pasted mail) — keep directory, not contents
+raw/*
+!raw/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Editors / OS
+.DS_Store
+*.swp
+*~
+.idea/
+.vscode/
+!.vscode/extensions.json
+
+# Odoo runtime
+filestore/
+*.log
+*.dump
+*.sql
+
+# Obsidian / local vault noise (if opened later)
+.obsidian/workspace*
+.obsidian/workspace-mobile.json
+
+# Tool caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/

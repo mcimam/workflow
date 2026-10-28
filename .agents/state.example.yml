@@ -1,0 +1,13 @@
+# Copy to state.yml (gitignored). Agents update last_intake after each successful pull.
+# Do not invent cursor values — only advance after a real pull.
+
+last_intake:
+  odoo:
+    at: null          # ISO datetime of last successful pull
+    cursor: null      # e.g. last task write_date or max task id seen
+  gmail:
+    at: null
+    cursor: null      # e.g. newest thread/message id processed
+  gchat:
+    at: null
+    cursor: null      # e.g. newest message name/resource

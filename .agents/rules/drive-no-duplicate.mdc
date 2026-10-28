@@ -1,0 +1,10 @@
+---
+description: Google Drive artifacts stay as links; never duplicate into wiki/ or raw/
+alwaysApply: true
+---
+
+# Drive-first documents
+
+If a project file lives on Google Drive, link it (`gdrive.folder_url` / file URL /
+frontmatter `gdrive:`). Do not copy SOWs, decks, or spreadsheets into `wiki/` or `raw/`
+unless the user explicitly asks for a local copy.

@@ -1,0 +1,72 @@
+{
+	"folders": [
+		{
+			"name": "modules",
+			"path": "./modules"
+		},
+		{
+			"name": "wiki",
+			"path": "./wiki"
+		},
+		{
+			"name": "raw",
+			"path": "./raw"
+		},
+		{
+			"name": "odoo",
+			"path": "${env:ODOO_SRC}"
+		},
+		{
+			"name": "odoo-ee",
+			"path": "${env:ODOO_EE}"
+		}
+	],
+	"settings": {
+		"python.defaultInterpreterPath": "${env:ODOO_PYTHON}",
+		"python.terminal.activateEnvironment": true,
+		"python.languageServer": "Pylance",
+		"python.autoComplete.extraPaths": [
+			"${env:ODOO_SRC}",
+			"${env:ODOO_EE}",
+			"${workspaceFolder:modules}"
+		],
+		"python.analysis.extraPaths": [
+			"${env:ODOO_SRC}",
+			"${env:ODOO_EE}",
+			"${workspaceFolder:modules}"
+		],
+		"editor.defaultFormatter": "ms-python.autopep8",
+		"editor.formatOnSave": true,
+		"autopep8.args": [
+			"--line-length=120",
+			"--ignore=E501"
+		],
+		"[xml]": {
+			"editor.defaultFormatter": "DotJoshJohnson.xml",
+			"editor.formatOnSave": false
+		},
+		"python.analysis.typeCheckingMode": "standard"
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"name": "Python: Run odoo-bin",
+				"type": "debugpy",
+				"request": "launch",
+				"python": "${env:ODOO_PYTHON}",
+				"program": "${env:ODOO_SRC}/odoo-bin",
+				"args": [
+					"-d", "REPLACE_DB",
+					"--db_user", "${env:ODOO_DB_USER}",
+					"--http-port", "8069",
+					"--http-interface", "127.0.0.1",
+					"--addons-path", "${workspaceFolder:modules},${env:ODOO_SRC}/addons,${env:ODOO_EE}",
+					"--dev=xml"
+				],
+				"console": "integratedTerminal",
+				"justMyCode": true
+			}
+		]
+	}
+}

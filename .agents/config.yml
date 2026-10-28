@@ -1,0 +1,38 @@
+project:
+  slug: REPLACE
+  name: REPLACE
+  module_prefix: pci_REPLACE_  # custom addon technical names, e.g. pci_fwa_
+  odoo_version: "19.0"         # local target; agents + overview use this
+
+tracking:
+  mode: REPLACE  # odoo | notes | hybrid — pick on copy
+
+portcities:
+  project_id: null       # required when mode is odoo|hybrid
+  project_url: null      # e.g. https://portcities.net/odoo/action-786/1234
+  # Optional; default task URL pattern if project_url is unset:
+  # task_url_template: "https://portcities.net/odoo/action-786/{project}/tasks/{task}"
+  milestone_id: null     # optional default for create_task.py
+  partner_id: null       # optional customer partner on tasks
+  default_assignees: []  # res.users ids, e.g. [1179]
+  # Fill from `create_task.py stages` after project_id is set (alias → stage id)
+  stages: {}
+  # stages:
+  #   backlog: 18
+  #   todo: 19
+  #   in progress: 21
+  #   qc: 22
+  #   uat: 23
+  #   done: 24
+  #   cancelled: 25
+
+gdrive:
+  folder_url: null
+  folder_id: null
+
+channels:
+  gmail_query: null
+  gchat_space: null
+  whatsapp: manual
+
+# Intake cursors live in .agents/state.yml (gitignored) — see state.example.yml
